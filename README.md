@@ -79,4 +79,21 @@ The application is designed for the testability, so here's the steps:
 - Create MockVideoFeedUseCase implement VideoFeedUseCaseProtocol
 - Create MockVideoFeedViewModel implement VideoFeedHomeViewModelProtocol
 - Now you can easily write the automation integration tests for API, Businesses
-     
+
+<code>
+This is one automation test that I built.
+func test_invalidURL() async {
+        
+        let service = MockVideoFeedService()
+        service.isInvalidURL = true
+        
+        do {
+            let res = try await service.loadVideoFeeds()
+            XCTAssertTrue(res.count == 0)
+        } catch {
+            XCTAssertTrue(error.localizedDescription == APIError.InvalidURL.localizedDescription)
+        }
+        
+    }
+</code>
+
