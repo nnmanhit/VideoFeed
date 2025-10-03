@@ -23,7 +23,7 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode_16.4.app
       - name: Run tests
         run: |
-          xcodebuild test "VideoFeed.xcodeproj" -scheme "VideoFeed" -destination "platform=iOS Simulator,name=iPhone 16 Pro Max,OS=latest" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -skip-testing:VideoFeedUITests
+          xcodebuild test -project "VideoFeed.xcodeproj" -scheme "VideoFeed" -destination "platform=iOS Simulator,name=iPhone 16 Pro Max,OS=latest" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -skip-testing:VideoFeedUITests
       - name: Build App
         run: |
-          xcodebuild "VideoFeed.xcodeproj" -scheme "VideoFeed" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+          xcodebuild -project "VideoFeed.xcodeproj" -scheme "VideoFeed" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
