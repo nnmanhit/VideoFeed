@@ -1,5 +1,9 @@
 # VideoFeed
 <img width="1024" height="1024" alt="Gemini_Generated_Image_rsmue1rsmue1rsmu" src="https://github.com/user-attachments/assets/1cbe4813-a0b7-4b7d-b175-4fb23731d25e" />
+<br>
+<img width="1206" height="2622" alt="Simulator Screenshot - Clone 1 of iPhone 16 Pro - 2025-10-03 at 06 31 50" src="https://github.com/user-attachments/assets/8022d8ee-60a2-443f-b1d1-53e1368224a6" />
+<img width="1206" height="2622" alt="Simulator Screenshot - Clone 1 of iPhone 16 Pro - 2025-10-03 at 06 31 55" src="https://github.com/user-attachments/assets/ae49c649-2b7b-485b-9564-d7b0ca3a7cbd" />
+<img width="1206" height="2622" alt="Simulator Screenshot - Clone 1 of iPhone 16 Pro - 2025-10-03 at 06 31 52" src="https://github.com/user-attachments/assets/1df86689-622a-4ce2-8698-3973be5f478e" />
 
 <h1>Project Architecture</h1>
 <p>Project is designed on MVVM Architecture for 4 goals</p>
@@ -97,3 +101,7 @@ func test_invalidURL() async {
     }
 </code>
 
+<h1>Installation</h1>
+- Install Xcode 16.2 or later
+- Go to VideoFeed folder where the xcodeproj is
+- Open xcodeproj file and compile
