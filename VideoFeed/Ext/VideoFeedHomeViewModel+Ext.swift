@@ -68,8 +68,8 @@ extension VideoFeedHomeViewModel {
         let window = Array(start...end)
         
         // Remove players outside of the window
-        for (idx, player) in players {
-            if !window.contains(idx) {
+        for (index, player) in players {
+            if !window.contains(index) {
                 player.pause()
                 
                 // to avoid memory leak
@@ -83,14 +83,14 @@ extension VideoFeedHomeViewModel {
                     )
                 }
                 
-                players.removeValue(forKey: idx)
+                players.removeValue(forKey: index)
             }
         }
         
         // Preload missing players inside the window
-        for idx in window where players[idx] == nil {
-            let player = AVPlayer(url: videos[idx].url)
-            players[idx] = player
+        for index in window where players[index] == nil {
+            let player = AVPlayer(url: videos[index].url)
+            players[index] = player
             
             if let item = player.currentItem {
                 NotificationCenter.default.addObserver(
