@@ -38,18 +38,26 @@ extension VideoFeedHomeViewModel {
         timeObserver = nil
     }
     
+    func showPlayButton() {
+        self.isShowingPlayButton.toggle()
+    }
+    
     func pauseVideo() {
         if let player = players[currentIndex] {
             player.pause()
         }
         scrollDisabled = true
+        isPausingVideo = true
     }
     
     func playVideo() {
         isTyping = false
+        isPausingVideo = false
         
         if let player = players[currentIndex] {
             player.play()
+        } else {
+            self.playCurrent()
         }
         
         scrollDisabled = false
@@ -110,6 +118,10 @@ extension VideoFeedHomeViewModel {
     
     func playCurrent() {
         stopAll()
+        
+        isPausingVideo = false
+        scrollDisabled = false
+        
         if let player = players[currentIndex] {
             player.seek(to: .zero)
             player.play()

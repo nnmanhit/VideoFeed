@@ -21,6 +21,8 @@ class VideoFeedHomeViewModel : VideoFeedHomeViewModelProtocol {
     @Published var scrollPosition: String?
     @Published var scrollDisabled : Bool = false
     @Published var isTyping : Bool = false
+    @Published var isPausingVideo : Bool = false
+    @Published var isShowingPlayButton : Bool = false
     @Published var comment: String = ""
     @Published var textViewHeight: CGFloat = 45
     @Published var playbackProgress: Double = 0.0

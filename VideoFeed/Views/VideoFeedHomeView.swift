@@ -11,6 +11,7 @@ import AVFoundation
 
 struct VideoFeedHomeView: View {
     
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject var viewModel: VideoFeedHomeViewModel
     
     var body: some View {
@@ -26,6 +27,11 @@ struct VideoFeedHomeView: View {
                             .onAppear(perform: {
                                 viewModel.playCurrent()
                             })
+                            .simultaneousGesture(
+                                TapGesture().onEnded {
+                                    self.viewModel.showPlayButton()
+                                }
+                            )
                     }
                 }
                 .scrollTargetLayout()
@@ -47,6 +53,47 @@ struct VideoFeedHomeView: View {
                 
                 self.viewModel.didScroll(to: newIndex)
                 
+            }
+            .onChange(of: scenePhase) { oldPhase, newPhase in
+                switch newPhase {
+                case .active:
+                    print("App became active")
+                    self.viewModel.playVideo()
+                case .inactive:
+                    print("App is inactive")
+                    self.viewModel.pauseVideo()
+                case .background:
+                    print("App moved to background")
+                    self.viewModel.pauseVideo()
+                default:
+                    break
+                }
+            }
+            
+            if viewModel.isShowingPlayButton {
+                Image(systemName: viewModel.isPausingVideo ? "play.circle" : "pause.circle")
+                    .resizable()
+                    .scaledToFill()
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(Color.clear)
+                    .frame(width: 120, height: 120)
+                    .simultaneousGesture(
+                        TapGesture().onEnded {
+                            if viewModel.isPausingVideo {
+                                self.viewModel.playVideo()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                    withAnimation {
+                                        viewModel.showPlayButton()
+                                    }
+                                }
+                            } else {
+                                self.viewModel.pauseVideo()
+                            }
+
+                        }
+                    )
             }
             
             if viewModel.isTyping == true {
