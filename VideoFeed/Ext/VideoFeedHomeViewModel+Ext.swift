@@ -47,7 +47,11 @@ extension VideoFeedHomeViewModel {
     
     func playVideo() {
         isTyping = false
-        self.playCurrent()
+        
+        if let player = players[currentIndex] {
+            player.play()
+        }
+        
         scrollDisabled = false
         hideKeyboard()
     }
