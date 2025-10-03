@@ -12,6 +12,7 @@
   <li>Maintainability</li>
   <li>Scalability</li>
   <li>Modularity</li>
+  <li>CI/CD with Github Actions</li>
 </ul>
 
 <h1>Architecture General</h1>
@@ -80,9 +81,12 @@ The application is designed for the testability, so here's the steps:
 - Create MockVideoFeedService implement VideoFeedServiceProtocol
 
 2. Test Business Logic
-- Create MockVideoFeedUseCase implement VideoFeedUseCaseProtocol
-- Create MockVideoFeedViewModel implement VideoFeedHomeViewModelProtocol
-- Now you can easily write the automation integration tests for API, Businesses
+<p>Create MockVideoFeedUseCase implement VideoFeedUseCaseProtocol</p>
+<p>Create MockVideoFeedViewModel implement VideoFeedHomeViewModelProtocol</p>
+<p>Now you can easily write the automation integration tests for API, Businesses</p>
+
+<img width="1241" height="415" alt="Screenshot 2025-10-03 at 6 38 09 AM" src="https://github.com/user-attachments/assets/6f32d9f9-93ab-4e6c-b3b4-ca9bf9200f49" />
+<img width="1326" height="673" alt="Screenshot 2025-10-03 at 6 37 23 AM" src="https://github.com/user-attachments/assets/88afb7c6-987f-4a76-9686-3ea25700b012" />
 
 <code>
 This is one automation test that I built.
