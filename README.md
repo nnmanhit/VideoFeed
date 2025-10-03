@@ -102,6 +102,8 @@ func test_invalidURL() async {
 </code>
 
 <h1>Installation</h1>
-- Install Xcode 16.2 or later
-- Go to VideoFeed folder where the xcodeproj is
-- Open xcodeproj file and compile
+<ul>
+  <li>Install Xcode 16.2 or later</li>
+  <li>Go to VideoFeed folder where the xcodeproj is</li>
+  <li>Open xcodeproj file and compile</li>
+</ul>
